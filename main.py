@@ -5,7 +5,7 @@ from import_lib.import_lib import ImportLib
 
 def co2DataScheduler(lib, scheduler):
     lib.put(*CO2DataFetcher.co2DataFetcher())
-    scheduler.enter(60, 0, co2DataScheduler, (lib, scheduler))
+    scheduler.enter(600, 0, co2DataScheduler, (lib, scheduler))
 
 if __name__ == '__main__':
     lib = ImportLib()

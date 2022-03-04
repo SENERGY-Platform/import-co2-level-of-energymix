@@ -26,4 +26,3 @@ def co2DataFetcher():
     }
     return dateCo2, dictCo2
 
-
