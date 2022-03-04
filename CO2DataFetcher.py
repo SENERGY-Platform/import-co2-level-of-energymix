@@ -17,10 +17,13 @@ def co2DataFetcher():
     dateneingang = requests.get(url, headers=headers).json()
     carbonIntensity = dateneingang['data']['carbonIntensity']
     fossilFuelPercentage = dateneingang['data']['fossilFuelPercentage']
+    unit = dateneingang['units']['carbonIntensity']
     dateCo2 = datetime.strptime(dateneingang['data']['datetime'], "%Y-%m-%dT%H:%M:%S.%fz")
     dictCo2 = {
         "carbonIntensity": carbonIntensity,
-        "fossilFuelPercentage": fossilFuelPercentage}
+        "fossilFuelPercentage": fossilFuelPercentage,
+        "carbonIntensityUnit": unit
+    }
     return dateCo2, dictCo2
 
 
