@@ -14,7 +14,10 @@ headers = {'auth-token': f'{api_key}'}
 
 
 def co2DataFetcher():
-    dateneingang = requests.get(url, headers=headers).json()
+    dateneingang = requests.get(url, headers=headers)
+    if not dateneingang.ok:
+        raise RuntimeError("Error contacting DWD Api")
+    dateneingang = dateneingang.json()
     carbonIntensity = dateneingang['data']['carbonIntensity']
     fossilFuelPercentage = dateneingang['data']['fossilFuelPercentage']
     unit = dateneingang['units']['carbonIntensity']
