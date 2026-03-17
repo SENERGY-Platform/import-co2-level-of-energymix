@@ -13,7 +13,7 @@ def co2DataScheduler(lib, scheduler):
     scheduler.enter(600, 0, co2DataScheduler, (lib, scheduler))
 
 if __name__ == '__main__':
-    lib = ImportLib()
+    lib = ImportLib("github.com/SENERGY-Platform/import-co2-level-of-energymix")
     scheduler = sched.scheduler(timefunc=time.time)
     co2DataScheduler(lib, scheduler)
 

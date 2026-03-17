@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3-alpine
 RUN apk add git gcc librdkafka-dev musl-dev --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
 
 ADD . /opt/app
